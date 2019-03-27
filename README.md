@@ -1,8 +1,11 @@
 # ColorTransformation
 实现对HTML元素的自定义的颜色
 页面变幻背景
+
+[页面展示](https://hanpoung.github.io/ColorTransformation/colofulTest.html)
+
 输入参数包括:
-[link](https://github.com/Hanpoung/ColorTransformation/blob/master/colofulTest.html)
+
 1.element
 接受一个变色的元素，
 数据类型： {  HTMLElement  } 
