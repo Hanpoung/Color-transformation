@@ -1,3 +1,8 @@
+/**
+ * colorful.js v0.3.0
+ * author by So Aanyip
+ * 11th Feb 2015
+ */
 (function(window){
     /*支持AMD规范*/
     if ( typeof define === "function" && define.amd) {
@@ -5,22 +10,27 @@
     }else{
         window.startLoop = startLoop;
     }
-    
-    // *****************************************************
+    /**
+     * 启动方法
+     * @param  {HTMLElement} element 接受变色的元素
+     * @param  {array} array   变色依赖的关键颜色的二维数组，按rgb传入，ex: [[255,255,0],[0,220,220],[220,0,220]]
+     * @param  {number} msec    完成一个变色阶段的时间（毫秒），即从array[i]变色到array[i+1]的时间。为了避免
+     *                          闪烁伤害眼睛，msec不能小于400
+     * @param  {string} attr   如果要变色的是css的其他属性，传入属性的名字，如'color'
+     * 
+     */
     function startLoop(element,array,msec,attr){
         /*检测用户输入*/
-        if(!element) return;  //输入的是非HTML元素直接返回
-        if(!Number(msec)) msec=3000; 
+        if(!element) return;
+        if(!Number(msec)) msec=3000;
         if(msec<400) msec=400;
         var second = msec/1000;
         array = array || [[255,255,0],[0,220,220],[153,51,0]];
         for (var i = array.length - 1; i >= 0; i--) {
-            array[i].length<3 ? array[i].length<2? array[i].length<1? array[i][0]=0:array[i][1]=0:array[i][2]=0:'';
-            
+            array[i].length<3? array[i].length<2? array[i].length<1? array[i][0]=0:array[i][1]=0:array[i][2]=0:'';
             array[i][0]>255?array[i][0]=255:'';
             array[i][1]>255?array[i][1]=255:'';
             array[i][2]>255?array[i][2]=255:'';
-            
             array[i][0]<0?array[i][0]=0:'';
             array[i][1]<0?array[i][1]=0:'';
             array[i][2]<0?array[i][2]=0:'';
